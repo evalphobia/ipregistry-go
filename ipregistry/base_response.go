@@ -72,7 +72,56 @@ type CurrencyFormat struct {
 	Suffix string `json:"suffix"`
 }
 
-type Location struct{}
+type Location struct {
+	Continent Continent `json:"continent"`
+	Country   Country   `json:"country"`
+	Region    Region    `json:"region"`
+	City      string    `json:"city"`
+	Postal    string    `json:"postal"`
+	Latitude  float64   `json:"latitude"`
+	Longitude float64   `json:"longitude"`
+	Language  Language  `json:"language"`
+	InEU      bool      `json:"in_eu"`
+}
+
+type Continent struct {
+	Code string `json:"code"`
+	Name string `json:"name"`
+}
+
+type Country struct {
+	Area              int64      `json:"area"`
+	Borders           []string   `json:"borders"`
+	CallingCode       string     `json:"calling_code"`
+	Capital           string     `json:"capital"`
+	Code              string     `json:"code"`
+	Name              string     `json:"name"`
+	Population        int64      `json:"population"`
+	PopulationDensity float64    `json:"population_density"`
+	Flag              Flag       `json:"flag"`
+	Languages         []Language `json:"languages"`
+	TLD               string     `json:"tld"`
+}
+
+type Flag struct {
+	Emoji        string `json:"emoji"`
+	EmojiUnicode string `json:"emoji_unicode"`
+	EmojiTwo     string `json:"emojitwo"`
+	Noto         string `json:"noto"`
+	Twemoji      string `json:"twemoji"`
+	Wikimedia    string `json:"wikimedia"`
+}
+
+type Language struct {
+	Code   string `json:"code"`
+	Name   string `json:"name"`
+	Native string `json:"native"`
+}
+
+type Region struct {
+	Code string `json:"code"`
+	Name string `json:"name"`
+}
 
 type Security struct {
 	IsBogon         bool `json:"is_bogon"`
